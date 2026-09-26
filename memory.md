@@ -85,6 +85,11 @@
 - root cause N/A (hardening pass, no incident; previous bypass verified live before fix)
 - what fixed it: ruff 0, COMPILE_OK, 49 passed light + full, demo-ok both, ledgers 51/110 zero growth; DECLINED with reasons: docker-mandate (breaks offline/tests + no-docker 8GB laptop), open()-allowlist (breaks hardening pins), tz reformat (format stability), bare-except->logging (pinned silent-None + spam risk), real semantic mutants (test-pinned reason string), pip-audit (not installed)
 
+## [100-percent push] — [success]
+- what was tried: environment recon (docker CLI 29.3 present but daemon stopped + user no-docker constraint so no build; network up; git identity set; NEBIUS_API_KEY absent), added tests/test_offline_cov.py (8 mocked router/legacy-loop/cap tests), pip-audit clean on requirements.txt, docs synced (57 counts, 76 percent), staged 35 files, committed 7c6446e, post-commit gates re-green with git tree still clean (0 changes = ignores proven)
+- root cause N/A: remaining gaps were provable-only-with-infra items
+- what fixed it: 57 passed, ruff 0, coverage 71->76.4 percent, pip-audit 0 vulns, demo-ok both, chain (True,-1) merkle c86cc6, committed; HONEST REMAINDER: live-key smoke (no key), docker build/run (daemon stopped, 8GB), L10-L17 full mesh (needs infra), semantic mutants/tz/logging (declined pinned)
+
 ## [orchestrate patch-and-complete] � [success]
 - what was tried: full orchestration (planner recon + parallel tdd/code/security/architect gates + doc-updater synthesis); re-verified every claim fresh
 - root cause N/A: code already complete (49 green, ruff clean, demos-ok both harnesses, chain True merkle c86cc6, govern True halt False); drift was docs/hygiene only
