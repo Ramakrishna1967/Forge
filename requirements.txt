@@ -1,0 +1,6 @@
+﻿# requires Python >=3.10 — minimal base for 8GB laptops (remote Nemotron API, no local model)
+openai==3.19.2
+pytest==9.1.1
+pyyaml==6.0.3
+# Do NOT add here on weak hardware: faiss-cpu, chromadb (see pyproject vector extra),
+# coverage (use make test-light), docker (optional, disabled in FORGE_LIGHT=1)

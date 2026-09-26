@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+sandbox_task.py
+
+.coverage
+coverage.xml
+htmlcov/
+
+.ruff_cache/
+
+# runtime state (never commit ledgers/outputs/artifacts); source in
+# .forge/vector/adapter.py stays tracked, everything else under .forge/ is state
+.forge/agent.json
+.forge/*.bak
+.forge/cache/
+.forge/dreams/
+.forge/episodic/
+.forge/graph/
+.forge/procedural/
+.forge/semantic/
+.forge/sleep_logs/
+.forge/vector/mirror.json
+.forge/working/
+runs/

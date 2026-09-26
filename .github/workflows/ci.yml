@@ -1,0 +1,19 @@
+name: forge-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile forge.py forge_loop.py forge_agents.py forge_memory.py forge_skills.py forge_sandbox.py forge_router.py forge_obs.py forge_govern.py forge_consolidate.py forge_const.py
+      - run: python -m pytest tests/ -v
+      - run: python forge.py --run-file examples/demo_task.py
+      - run: python forge_loop.py --run-file examples/demo_task.py
